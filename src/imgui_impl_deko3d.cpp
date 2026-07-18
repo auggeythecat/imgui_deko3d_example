@@ -77,7 +77,7 @@ static u32 loadShader(dk::Shader &shader, const char *path,
   return align(size, DK_SHADER_CODE_ALIGNMENT);
 }
 
-static void InitDeko3Shaders(ImGui_ImplDeko3d_Data *bd) {
+static void InitDeko3dShaders(ImGui_ImplDeko3d_Data *bd) {
   DkDevice device = bd->device;
   // create memory block for shader code
   static_assert(CODEMEMSIZE == align(CODEMEMSIZE, DK_MEMBLOCK_ALIGNMENT), "");
@@ -331,7 +331,7 @@ static void InitDeko3dData(ImGui_ImplDeko3d_Data *bd) {
   bd->queue =
       dk::QueueMaker(bd->device).setFlags(DkQueueFlags_Graphics).create();
 
-  InitDeko3Shaders(bd);
+  InitDeko3dShaders(bd);
 
   InitDeko3dSwapchain(bd);
 
